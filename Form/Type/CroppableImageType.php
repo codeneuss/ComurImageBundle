@@ -1,6 +1,6 @@
 <?php
 
-namespace Comur\ImageBundle\Form\Type;
+namespace Codeneuss\ImageBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 // use Symfony\Component\Form\FormBuilder;
@@ -27,7 +27,7 @@ class CroppableImageType extends AbstractType
 
     public function getBlockPrefix()
     {
-        return 'comur_image';
+        return 'image';
     }
 
     /**
@@ -59,12 +59,12 @@ class CroppableImageType extends AbstractType
     {
 
         $uploadConfig = array(
-            'uploadRoute' => 'comur_api_upload',
+            'uploadRoute' => 'image_api_upload',
             'uploadUrl' => null,
             'webDir' => null,
             'fileExt' => '*.jpg;*.gif;*.png;*.jpeg',
             'libraryDir' => null,
-            'libraryRoute' => 'comur_api_image_library',
+            'libraryRoute' => 'image_api_image_library',
             'showLibrary' => true,
             'saveOriginal' => false, //save original file name
             'generateFilename' => true //generate an uniq filename
@@ -75,7 +75,7 @@ class CroppableImageType extends AbstractType
             'minWidth' => 1,
             'minHeight' => 1,
             'aspectRatio' => true,
-            'cropRoute' => 'comur_api_crop',
+            'cropRoute' => 'image_api_crop',
             'forceResize' => true,
             'thumbs' => null
         );
@@ -95,7 +95,9 @@ class CroppableImageType extends AbstractType
         $galleryDir = $this->galleryDir;
 
         $resolver->setNormalizer(
-            'uploadConfig', function(Options $options, $value) use ($uploadConfig, $isGallery, $galleryDir){
+            'uploadConfig', function(
+            /** @noinspection PhpUnusedParameterInspection */
+            Options $options, $value) use ($uploadConfig, $isGallery, $galleryDir){
                 $config = array_merge($uploadConfig, $value);
 
                 if($isGallery){
@@ -114,7 +116,9 @@ class CroppableImageType extends AbstractType
             }
         );
         $resolver->setNormalizer(
-            'cropConfig', function(Options $options, $value) use($cropConfig){
+            'cropConfig', function(
+            /** @noinspection PhpUnusedParameterInspection */
+            Options $options, $value) use($cropConfig){
                 return array_merge($cropConfig, $value);
             }
         );

@@ -1,15 +1,20 @@
 {
-    "name": "comur/image-bundle",
+    "name": "codeneuss/image-bundle",
     "type": "symfony-bundle",
-    "description": "A bundle providing fields for image upload with jquery upload and image cropping with jcrop for symfony2",
+    "description": "A bundle providing fields for image upload with jquery upload and image cropping with jcrop for symfony2 (forked from comour/ComurImageBundle)",
     "keywords": ["Form Type", "image", "upload", "crop", "jcrop", "jquery upload"],
-    "homepage": "https://github.com/comur/ComurImageBundle",
+    "homepage": "https://github.com/codeneuss/ImageBundle",
     "license": "MIT",
     "authors": [
         {
             "name": "Can OMUR",
             "email": "omur.can@gmail.com",
             "homepage": "http://canomur.com"
+        },
+        {
+            "name" : "Volkmar Eigler",
+            "email" : "codeneuss@posteo.net",
+            "homepage": "https://volkmareigler.de"
         }
     ],
     "require": {
@@ -25,11 +30,11 @@
         "twig/twig": "~1.12",
         "twig/extensions": "~1.0",
         "friendsofsymfony/jsrouting-bundle": "@stable",
-	"jms/translation-bundle": "^1.2.2"
+	    "jms/translation-bundle": "^1.2.2"
     },
-    "target-dir": "Comur/ImageBundle",
+    "target-dir": "Codeneuss/ImageBundle",
     "autoload": {
-        "psr-0": { "Comur\\ImageBundle": "" }
+        "psr-0": { "Codeneuss\\ImageBundle": "" }
     },
     "extra": {
         "branch-alias": {

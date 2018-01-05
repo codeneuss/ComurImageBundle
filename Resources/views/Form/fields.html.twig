@@ -1,6 +1,5 @@
-{% block comur_image_widget %}
-    {% trans_default_domain comur_translation_domain %}
-    {# trans_default_domain 'ComurImageBundle' #}
+{% block image_widget %}
+    {% trans_default_domain image_translation_domain %}
     {% spaceless %}
         {# block('form_widget_simple') #}
         {{ form_widget(form[name])}}
@@ -51,7 +50,7 @@
                     });
                 }
             {% endif %}
-            $('#image_preview_{{ form[name].vars.id }}.select-image-button .image_edit_button').click(function(event){
+            $('#image_preview_{{ form[name].vars.id }}.select-image-button .image_edit_button').click(function(){
                 var options = $.parseJSON('{{ options | json_encode() | raw }}');
                 {% if options.uploadConfig.saveOriginal %}
                     options['originalImageFieldId'] = '{{ form[options.uploadConfig.saveOriginal].vars.id }}';
@@ -61,11 +60,12 @@
                 $('#image_upload_modal').modal('show');
             });
         });
-        $('.select-image-button').mouseover(function(){
+        var imagebutton = $('.select-image-button');
+        imagebutton.mouseover(function(){
             if(!$(this).hasClass('hide-disabled'))
                 $(this).children('.image_edit_button').removeClass('hidden');
         });
-        $('.select-image-button').mouseout(function(){
+        imagebutton.mouseout(function(){
             if(!$(this).hasClass('hide-disabled'))
                 $(this).children('.image_edit_button').addClass('hidden');
         });
@@ -73,9 +73,8 @@
     </script>
 {% endblock %}
 
-{% block comur_gallery_widget %}
-    {% trans_default_domain comur_translation_domain %}
-    {# trans_default_domain 'ComurImageBundle' #}
+{% block image_gallery_widget %}
+    {% trans_default_domain image_translation_domain %}
 
     {% spaceless %}
 
@@ -107,13 +106,13 @@
         $(document).ready(function(){
             rebindGalleryRemove();
             galleries['{{form[name].vars.id}}'] = true;
-            $('#image_add_button_{{form[name].vars.id}}').click(function(event){
+            $('#image_add_button_{{form[name].vars.id}}').click(function(){
                 initializeImageManager('{{ form[name].vars.id }}', $.parseJSON('{{ options | json_encode() | raw }}'));
                 $('#image_upload_modal').modal('show');
             });
             $( "#gallery_preview_{{form[name].vars.id}}" ).sortable({
                 placeholder: "gallery-image-container placeholder",
-                update: function(e, ui){
+                update: function(){
                     reorderItems('gallery_preview_{{form[name].vars.id}}');
                 }
             });

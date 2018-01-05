@@ -1,17 +1,14 @@
 <?php
 
-namespace Comur\ImageBundle;
+namespace Codeneuss\ImageBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-use Comur\ImageBundle\DependencyInjection\Compiler\FormPass;
+use Codeneuss\ImageBundle\DependencyInjection\Compiler\FormPass;
 
-class ComurImageBundle extends Bundle
+class ImageBundle extends Bundle
 {
-    /**
-     * {@inheritdoc}
-     */
     public function build(ContainerBuilder $container)
     {
         parent::build($container);

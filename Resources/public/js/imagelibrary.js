@@ -35,8 +35,7 @@ function initializeImageManager(id, options){
                 for (var i = files.length - 1; i >= 0; i--) {
                     var now = new Date().getTime();
                     $('#existing-images').append('<div class="image-container" data-src="'+files[i]+'"><img src="/'+options.uploadConfig.webDir + '/'+response['thumbsDir']+'/'+files[i]+'?'+now+'"/></div>');
-                };
-                
+                }
                 $('.image-container').click(function(){
                     $('#selected_image').val($(this).attr('data-src'));
                     initJCrop(id, options);

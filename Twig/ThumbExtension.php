@@ -1,5 +1,7 @@
 <?php
-namespace Comur\ImageBundle\Twig;
+namespace Codeneuss\ImageBundle\Twig;
+
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class ThumbExtension extends \Twig_Extension implements \Twig_Extension_GlobalsInterface
 {
@@ -9,7 +11,7 @@ class ThumbExtension extends \Twig_Extension implements \Twig_Extension_GlobalsI
     protected $webDir;
     protected $transDomain;
 
-    public function __construct($croppedDir, $thumbsDir, $container, $webDirName, $transDomain, $galleryDir)
+    public function __construct($croppedDir, $thumbsDir,ContainerInterface $container, $webDirName, $transDomain, $galleryDir)
     {
         $this->croppedDir = $croppedDir;
         $this->thumbsDir = $thumbsDir;
@@ -59,11 +61,11 @@ class ThumbExtension extends \Twig_Extension implements \Twig_Extension_GlobalsI
 
     public function getName()
     {
-        return 'comur_thumb_extension';
+        return 'image_thumb_extension';
     }
 
     public function getGlobals()
     {
-        return array('comur_translation_domain' => $this->transDomain);
+        return array('image_translation_domain' => $this->transDomain);
     }
 }

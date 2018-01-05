@@ -1,6 +1,9 @@
-Use branch master for compatibility with Syfony 2
-------------
-Use branch 1.3 for compatibility with Symfony 3
+This Package is a fork of ComurImageBundle an will only support Symfony3 right now.
+This packet is only conditionally maintained.
+
+Readme from forked Repository.
+
+
 ------------
 Use 0.X releases for compatibility with bootstrap 2.x.
 ------------
@@ -85,7 +88,7 @@ Installation
     fos_js_routing:
     	resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
     	
-    comur_image:
+    image:
         resource: "@ComurImageBundle/Resources/config/routing.yml"
         prefix:   /
     ```
@@ -120,7 +123,7 @@ Configuration
 <br/>
 **All parameters are optional:**
 
-	comur_image:
+	image:
 		config:
 			cropped_image_dir: 'cropped'
 			thumbs_dir: 'thumbnails'
@@ -189,12 +192,12 @@ Use widget in your forms (works with SonataAdmin too) to create a simple image f
 	    ...
 	    ->add('image', CroppableImageType::class, array(
 	        'uploadConfig' => array(
-	            'uploadRoute' => 'comur_api_upload', 		//optional
+	            'uploadRoute' => 'api_upload', 		//optional
 	            'uploadUrl' => $myEntity->getUploadRootDir(),       // required - see explanation below (you can also put just a dir path)
 	            'webDir' => $myEntity->getUploadDir(),				// required - see explanation below (you can also put just a dir path)
 	            'fileExt' => '*.jpg;*.gif;*.png;*.jpeg', 	//optional
 	            'libraryDir' => null, 						//optional
-	            'libraryRoute' => 'comur_api_image_library', //optional
+	            'libraryRoute' => 'api_image_library', //optional
 	            'showLibrary' => true, 						//optional
 	            'saveOriginal' => 'originalImage',			//optional
 	            'generateFilename' => true			//optional
@@ -203,7 +206,7 @@ Use widget in your forms (works with SonataAdmin too) to create a simple image f
 	            'minWidth' => 588,
 	            'minHeight' => 300,
 	            'aspectRatio' => true, 				//optional
-	            'cropRoute' => 'comur_api_crop', 	//optional
+	            'cropRoute' => 'api_crop', 	//optional
 	            'forceResize' => false, 			//optional
 	            'thumbs' => array( 					//optional
 	            	array(
@@ -276,7 +279,7 @@ Gallery widget
 Use widget in your forms (works with SonataAdmin too) to create a **sortable** list of images (so a gallery :)) stored in an array typed field :
 
 	->add('gallery', CroppableGalleryType::class, array(
-		//same parameters as comur_image
+		//same parameters as image
 	))
 	
 And create your array typed field for storing images in it. Doctrine (or other ORM) will serialize this field to store it as string in the DB.
@@ -325,7 +328,7 @@ Gallery images will be stored in uploadUrl / gallery_dir (default is gallery). C
 
 Route called to send uploaded file. It's recommended to not change this parameter except if you know exactly what you do.
 
-**Default value:** comur_api_upload
+**Default value:** api_upload
 
 ###uploadUrl (required)###
 
@@ -373,7 +376,7 @@ Directory to look into for images to show in image library.
 
 Route called to get images to show in library. I recommend you to not change this parameter if you don't know exactly what it does.
 
-**Default value:** comur_api_image_library
+**Default value:** api_image_library
 
 ###showLibrary (optional)###
 
@@ -418,7 +421,7 @@ True to aspect ratio of crop screen.
 
 Route to crop action. I recommend you to not change this parameter if you don't know exactly what it does.
 
-**Default value:** comur_api_crop
+**Default value:** api_crop
 
 
 ###forceResize (optional)###

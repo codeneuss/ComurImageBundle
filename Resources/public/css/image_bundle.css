@@ -43,7 +43,6 @@
     line-height: normal;
     margin-left: -10px;
     margin-top: -10px;
-    cursor: hand;
     cursor: pointer;
     text-align: left;
 }
@@ -90,7 +89,6 @@
     text-align: center;
     font-size: 1.5em;
     padding: 60px;
-    border: dotted 1px #555;
 }
 
 .image_upload_drop_zone p
@@ -109,8 +107,8 @@
 
 .jcrop-dark .jcrop-selection
 {
-    -webkit-box-shadow: 0px 0px 15px #000;
-    box-shadow: 0px 0px 15px #000;
+    -webkit-box-shadow: 0 0 15px #000;
+    box-shadow: 0 0 15px #000;
 }
 
 #image_upload_modal .modal-dialog
@@ -141,7 +139,6 @@
     vertical-align: middle;
     padding: 5px;
     line-height: 150px;
-    cursor: hand;
     cursor: pointer;
 }
 

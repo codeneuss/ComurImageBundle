@@ -1,6 +1,6 @@
 <?php
 
-namespace Comur\ImageBundle\DependencyInjection;
+namespace Codeneuss\ImageBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('comur_image');
+        $rootNode = $treeBuilder->root('image');
 
         $rootNode
             ->children()
@@ -31,7 +31,7 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('media_lib_thumb_size')->defaultValue(150)->cannotBeEmpty()->end()
                         ->scalarNode('gallery_thumb_size')->defaultValue(150)->cannotBeEmpty()->end()
                         ->scalarNode('web_dirname')->defaultValue('web')->cannotBeEmpty()->end()
-                        ->scalarNode('translation_domain')->defaultValue('ComurImageBundle')->cannotBeEmpty()->end()
+                        ->scalarNode('translation_domain')->defaultValue('ImageBundle')->cannotBeEmpty()->end()
                     ->end()
                 ->end()
             ->end()
