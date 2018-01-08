@@ -3,17 +3,17 @@ parameters:
     gallery_type_class: Codeneuss\ImageBundle\Form\Type\CroppableGalleryType
 services:
     image_bundle.image_type:
-        class: %image_type_class%
+        class: "%image_type_class%"
         tags:
             - { name: form.type, alias: image }
         # arguments: [%image.translation_domain%]
     image_bundle.gallery_type:
-        class: %gallery_type_class%
+        class: "%gallery_type_class%"
         tags:
             - { name: form.type, alias: gallery }
-        arguments: [%image.gallery_dir%, %image.thumbs_dir%, %image.gallery_thumb_size%]
+        arguments: ["%image.gallery_dir%", "%image.thumbs_dir%", "%image.gallery_thumb_size%"]
     image.twig.thumb_extension:
         class: Codeneuss\ImageBundle\Twig\ThumbExtension
         tags:
             - { name: twig.extension }
-        arguments: [%image.cropped_image_dir%, %image.thumbs_dir%, "@service_container", %image.web_dirname%, %image.translation_domain%, %image.gallery_dir%]
+        arguments: ["%image.cropped_image_dir%", "%image.thumbs_dir%", "@service_container", "%image.web_dirname%", "%image.translation_domain%", "%image.gallery_dir%"]
